@@ -1,26 +1,45 @@
 <!DOCTYPE html>
+<!-- El atributo lang="es" en la etiqueta <html> indica que el idioma principal del documento es español. -->
 <html lang="es">
 <head>
+    <!-- La etiqueta <meta charset="UTF-8"> define la codificación de caracteres del documento. UTF-8 es un estándar que permite mostrar correctamente caracteres especiales y acentos. -->
     <meta charset="UTF-8">
+    <!-- La etiqueta <meta name="viewport"> es crucial para el diseño responsivo. Asegura que la página se vea bien en todos los dispositivos (móviles, tabletas, etc.) al ajustar el ancho de la página al ancho del dispositivo y establecer el nivel de zoom inicial. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- La etiqueta <title> define el título que se muestra en la pestaña del navegador. -->
     <title>Conferencia de Estaca Aldo Bonzi</title>
+    
+    <!-- La etiqueta <link rel="icon"> establece el favicon, que es el pequeño ícono que aparece en la pestaña del navegador. -->
     <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- La etiqueta <link rel="stylesheet"> enlaza la hoja de estilos externa (style.css) que define la apariencia visual de la página. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Este es el contenedor principal de la página. La clase "container" se usa en CSS para centrar el contenido, darle un fondo blanco, bordes redondeados y una sombra. -->
     <div class="container">
+        
+        <!-- La etiqueta <header> representa la sección de encabezado de la página. -->
         <header>
+            <!-- La clase "logo" se usa para agrupar los logotipos y centrarlos con Flexbox en CSS. -->
             <div class="logo">
                 <img src="images/logo.png" alt="Logo 1">
                 <img src="images/lds-logo.png" alt="Logo 2">
             </div>
+            <!-- <h1> es el título principal de la página. -->
             <h1>CONFERENCIA DE ESTACA ALDO BONZI</h1>
+            <!-- La clase "subtitle" se usa para estilizar el subtítulo. -->
             <p class="subtitle">SESIÓN DE ADULTOS</p>
         </header>
 
+        <!-- La clase "content" envuelve el contenido principal del programa. En CSS se le aplica un padding para separarlo de los bordes del contenedor. -->
         <div class="content">
+            
+            <!-- La clase "session-header" utiliza CSS Grid para organizar la información de la sesión en dos columnas. -->
             <div class="session-header">
                 <div>
+                    <!-- La clase "info-item" se usa para dar un estilo consistente a cada línea de información. -->
                     <div class="info-item"><strong>Preside:</strong> Pte. Alfredo Delgadillo</div>
                     <div class="info-item"><strong>Director/a:</strong> Camila Lugo</div>
                 </div>
@@ -30,10 +49,12 @@
                 </div>
             </div>
 
+            <!-- Este es otro "info-item" para los reconocimientos. El estilo en línea "style="margin-top: 15px;"" agrega un espacio superior. -->
             <div class="info-item" style="margin-top: 15px;">
                 <strong>Reconocimientos:</strong> Pte. Delgadillo (Presidente de estaca), Pte. Avila (1° consejero de estaca), Pte. Pizarro (2° consejero de estaca) 
             </div>
 
+            <!-- Este bloque de código está comentado, lo que significa que no se mostrará en la página. Se puede descomentar para agregar la sección de agradecimientos. -->
             <!-- <div class="info-item" style="margin-top: 10px;">
                 <strong>Agradecimientos:</strong>
                 <ul style="margin-left: 25px; margin-top: 5px;">
@@ -42,7 +63,10 @@
                 </ul>
             </div> -->
 
+            <!-- La clase "program-section" agrupa todos los elementos del programa. -->
             <div class="program-section">
+                
+                <!-- La clase "program-item" define el estilo para cada parte del programa. La clase "hymn" le da un estilo especial a los himnos. -->
                 <div class="program-item hymn">
                     <strong>Himno Inicial:</strong> <a href="https://www.churchofjesuschrist.org/music/library/hymns/i-believe-in-christ?lang=spa" target="_blank" style="color: #0284c7; text-decoration: none;">#1004 "Andaré con Cristo"</a>
                 </div>
@@ -51,8 +75,10 @@
                     <strong>Oración Inicial:</strong> Agustina Montaño – Bº Villa Madero
                 </div>
 
+                <!-- Cada "program-item" representa una parte de la sesión. La etiqueta <strong> resalta el tipo de participación. -->
                 <div class="program-item">
                     <strong>1º Mensaje:</strong> Matrimonio Ferreira (Asesores Misioneros de Servicio Adultos) 
+                    <!-- El div con la clase "theme" está comentado. Se puede usar para agregar el tema de cada discurso. -->
                     <!-- <div class="theme">Tema: Qué es ser misioneros de servicio mayor y cómo aplicar para serlo</div> -->
                 </div>
 
@@ -67,7 +93,7 @@
                 </div>
 
                 <div class="program-item">
-                    <strong>4º Mensaje:</strong> Roodibelys Piña – Bº Villa Madero
+                    <strong>4º Mensaje:</strong> Roodibelsy Piña – Bº Villa Madero
                     <!-- <div class="theme">Tema: Cómo preparar espiritualmente a nuestros hijos para las pruebas que vendrán</div> -->
                 </div>
 
@@ -100,6 +126,7 @@
             </div>
         </div>
 
+        <!-- La etiqueta <footer> representa el pie de página. -->
         <footer>
             <p>Conferencia de Estaca Aldo Bonzi | Sábado 22 de noviembre, 2025 - 18:30 hs</p>
         </footer>

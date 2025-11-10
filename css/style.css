@@ -1,224 +1,256 @@
+/* === RESET UNIVERSAL === */
+/* El selector universal (*) se usa para aplicar estilos a TODOS los elementos de la página. */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* Elimina los márgenes y rellenos (padding) predeterminados del navegador. */
+    margin: 0;
+    padding: 0;
+    /* Cambia el modelo de caja para que el padding y el borde se incluyan en el ancho y alto total del elemento. */
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 40%,z #bae6fd 70%, #7dd3fc 100%);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
+/* === ESTILOS DEL CUERPO (BODY) === */
+body {
+    /* Define la fuente principal para toda la página. Si una fuente no está disponible, el navegador intentará con la siguiente. */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Crea un fondo con un degradado lineal vertical que va de un azul claro a uno más oscuro. */
+    background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 40%, #bae6fd 70%, #7dd3fc 100%);
+    /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana del navegador. */
+    min-height: 100vh;
+    /* Añade un espacio de 20px alrededor del contenido del body. */
+    padding: 20px;
+    /* La posición relativa es necesaria para posicionar correctamente los pseudo-elementos (::before y ::after). */
+    position: relative;
+    /* Evita que aparezca una barra de desplazamiento horizontal si algún contenido se desborda. */
+    overflow-x: hidden;
+}
 
-        body::before {
-            content: '';
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: 
-                radial-gradient(ellipse at 20% 100%, rgba(186, 230, 253, 0.4) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 100%, rgba(125, 211, 252, 0.4) 0%, transparent 50%);
-            z-index: 0;
-        }
+/* === PSEUDO-ELEMENTOS DECORATIVOS DEL BODY === */
+/* '::before' y '::after' crean elementos "virtuales" que se pueden estilizar. Aquí se usan para añadir formas decorativas al fondo. */
 
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to top, rgba(125, 211, 252, 0.3) 0%, transparent 100%);
-            clip-path: polygon(0 60%, 30% 40%, 60% 55%, 100% 35%, 100% 100%, 0 100%);
-            z-index: 0;
-        }
+body::before {
+    content: ''; /* Obligatorio para que el pseudo-elemento se muestre. */
+    position: fixed; /* Fija el elemento en la ventana, no se mueve con el scroll. */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%; /* Ocupa el 60% de la altura de la pantalla desde abajo. */
+    /* Crea dos degradados radiales (círculos) en las esquinas inferiores para un efecto de luz. */
+    background: 
+        radial-gradient(ellipse at 20% 100%, rgba(186, 230, 253, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(125, 211, 252, 0.4) 0%, transparent 50%);
+    z-index: 0; /* Coloca el elemento detrás del contenido principal (que tiene z-index: 1). */
+}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-        }
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    /* Crea un degradado lineal sutil desde abajo hacia arriba. */
+    background: linear-gradient(to top, rgba(125, 211, 252, 0.3) 0%, transparent 100%);
+    /* 'clip-path' recorta el elemento para darle una forma poligonal irregular, creando un efecto de "olas" o "colinas". */
+    clip-path: polygon(0 60%, 30% 40%, 60% 55%, 100% 35%, 100% 100%, 0 100%);
+    z-index: 0;
+}
 
-        header {
-            background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
+/* === CONTENEDOR PRINCIPAL === */
+.container {
+    max-width: 900px; /* Establece el ancho máximo del contenedor. */
+    margin: 0 auto; /* Centra el contenedor horizontalmente. */
+    background: white; /* Fondo blanco para el contenido. */
+    border-radius: 20px; /* Bordes redondeados para un aspecto suave. */
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Sombra pronunciada para dar profundidad y destacar el contenedor. */
+    overflow: hidden; /* Oculta cualquier contenido que se salga de los bordes redondeados. */
+    position: relative; /* Necesario para que el z-index funcione correctamente. */
+    z-index: 1; /* Coloca el contenedor por encima de los pseudo-elementos del body. */
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
+/* === ENCABEZADO (HEADER) === */
+header {
+    background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 100%); /* Degradado azul para el encabezado. */
+    color: white; /* Color de texto blanco para que contraste con el fondo. */
+    padding: 40px; /* Espacio interno generoso. */
+    text-align: center; /* Centra todo el texto y los elementos en línea. */
+}
 
-        .logo img {
-            width: 200px;
-            height: 200px;
-            object-fit: contain;
-        }
+.logo {
+    display: flex; /* Activa Flexbox para alinear los logos. */
+    align-items: center; /* Centra los logos verticalmente. */
+    justify-content: center; /* Centra los logos horizontalmente. */
+    gap: 30px; /* Espacio entre los logos. */
+    margin-bottom: 20px; /* Espacio debajo de la sección de logos. */
+}
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
+.logo img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain; /* Asegura que la imagen se escale correctamente sin deformarse dentro de su contenedor. */
+}
 
-        .subtitle {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
+h1 {
+    font-size: 2em; /* Tamaño de fuente grande para el título principal (2 veces el tamaño de fuente base). */
+    margin-bottom: 5px;
+}
 
-        .content {
-            padding: 40px;
-        }
+.subtitle {
+    font-size: 1.2em;
+    font-weight: bold; /* Texto en negrita. */
+}
 
-        .session-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
+/* === SECCIÓN DE CONTENIDO === */
+.content {
+    padding: 40px; /* Espacio interno para separar el contenido de los bordes del contenedor. */
+}
 
-        .info-item {
-            margin-bottom: 8px;
-            font-size: 0.95em;
-        }
+.session-header {
+    display: grid; /* Activa CSS Grid para un diseño en columnas. */
+    grid-template-columns: 1fr 1fr; /* Crea dos columnas de igual ancho. */
+    gap: 20px; /* Espacio entre las columnas. */
+    margin-bottom: 20px;
+}
 
-        .info-item strong {
-            font-weight: bold;
-        }
+.info-item {
+    margin-bottom: 8px;
+    font-size: 0.95em; /* Tamaño de fuente ligeramente más pequeño. */
+}
 
-        .program-section {
-            margin-top: 30px;
-        }
+.info-item strong {
+    font-weight: bold; /* Hace que el texto dentro de <strong> sea negrita (aunque ya lo es por defecto, esto lo refuerza). */
+}
 
-        .program-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
+/* === SECCIÓN DEL PROGRAMA === */
+.program-section {
+    margin-top: 30px; /* Espacio superior para separar del bloque de información. */
+}
 
-        .program-item:last-child {
-            border-bottom: none;
-        }
+.program-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    /* Línea divisoria sutil debajo de cada ítem del programa. */
+    border-bottom: 1px solid #e0e0e0;
+}
 
-        .program-item strong {
-            display: block;
-            color: #333;
-            margin-bottom: 5px;
-        }
+/* Elimina la línea divisoria del último ítem para un acabado limpio. */
+.program-item:last-child {
+    border-bottom: none;
+}
 
-        .program-item .theme {
-            color: #666;
-            font-size: 0.9em;
-            margin-left: 15px;
-            font-style: italic;
-        }
+.program-item strong {
+    display: block; /* Hace que el <strong> ocupe toda la línea, empujando el texto siguiente hacia abajo. */
+    color: #333; /* Color de texto oscuro. */
+    margin-bottom: 5px;
+}
 
-        .hymn {
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #0c4a6e;
-        }
+.program-item .theme {
+    color: #666;
+    font-size: 0.9em;
+    margin-left: 15px;
+    font-style: italic; /* Texto en cursiva para el tema. */
+}
 
-        .hymn a {
-            color: #0284c7;
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s ease;
-        }
+/* === ESTILOS PARA LOS HIMNOS === */
+.hymn {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); /* Fondo con degradado para destacar los himnos. */
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0c4a6e; /* Color de texto azul oscuro. */
+}
 
-        .hymn a:hover {
-            border-bottom: 2px solid #0284c7;
-        }
+.hymn a {
+    color: #0284c7; /* Color azul para el enlace. */
+    text-decoration: none; /* Quita el subrayado del enlace. */
+    border-bottom: 2px solid transparent; /* Prepara una línea inferior transparente para la animación. */
+    transition: border-color 0.3s ease; /* Anima el cambio de color del borde al pasar el mouse. */
+}
 
-        .partituras-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+.hymn a:hover {
+    /* Al pasar el mouse, la línea inferior se vuelve azul, creando un efecto de subrayado animado. */
+    border-bottom: 2px solid #0284c7;
+}
 
-        .partitura-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border: 2px solid #f0f0f0;
-        }
+/* === ESTILOS PARA LA SECCIÓN DE PARTITURAS (NO USADA EN EL HTML ACTUAL) === */
+.partituras-grid {
+    display: grid;
+    /* Crea una cuadrícula responsiva: las columnas tienen un mínimo de 250px y se ajustan automáticamente. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
 
-        .partitura-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            border-color: #667eea;
-        }
+.partitura-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* Anima la transformación (movimiento) de la tarjeta. */
+    border: 2px solid #f0f0f0;
+}
 
-        .partitura-card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
+.partitura-card:hover {
+    transform: translateY(-5px); /* Mueve la tarjeta 5px hacia arriba al pasar el mouse. */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Aumenta la sombra para un efecto "lifted". */
+    border-color: #667eea; /* Cambia el color del borde. */
+}
 
-        .partitura-info {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
+.partitura-card h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
 
-        .download-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
+.partitura-info {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
 
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
+.download-btn {
+    display: inline-block; /* Permite aplicar padding y otras propiedades de bloque. */
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px; /* Bordes muy redondeados para forma de píldora. */
+    transition: all 0.3s ease; /* Anima todas las propiedades que cambien en el hover. */
+    font-weight: bold;
+}
 
-        .section-title {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            margin: 30px 0 20px 0;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
+.download-btn:hover {
+    transform: scale(1.05); /* Agranda ligeramente el botón. */
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); /* Añade una sombra de color para un efecto de "glow". */
+}
 
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-        }
+.section-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin: 30px 0 20px 0;
+    font-size: 1.3em;
+    font-weight: bold;
+}
 
-        @media (max-width: 768px) {
-            .session-header {
-                grid-template-columns: 1fr;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-        }
+/* === PIE DE PÁGINA (FOOTER) === */
+footer {
+    background: #2d3748; /* Fondo gris oscuro. */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* === DISEÑO RESPONSIVO (MEDIA QUERIES) === */
+/* Estos estilos se aplican solo cuando el ancho de la pantalla es de 768px o menos (típicamente tabletas y móviles). */
+@media (max-width: 768px) {
+    .session-header {
+        /* Cambia el grid de dos columnas a una sola columna en pantallas pequeñas. */
+        grid-template-columns: 1fr;
+    }
+    
+    .content {
+        /* Reduce el padding en pantallas pequeñas para dar más espacio al contenido. */
+        padding: 20px;
+    }
+}
